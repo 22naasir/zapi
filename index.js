@@ -4,21 +4,6 @@ var debug = require("debug");
 var util = require("util");
 var XLS = require("xlsjs");
 
-var rootPath = "https://myaccount.zaad.net";
-var defaultPath = "/default.aspx";
-var welcomePath = "/welcome.aspx";
-var logoutPath = "/logout_transit.aspx";
-var tokenPath = "/CheckAccessKey.aspx";
-var sendMoneyPath = "/Admin/CustomerSingleTransactions.aspx?TranType=5";
-var reportsPath = "/Admin/Reports.aspx";
-var accountActivityPath = "/Admin/ShowReport.aspx";
-
-var zapi = {
-  getCaptcha: function(state, cb){
-    var log = debug("zapi:getCaptcha");
-
-    var jar = request.jar();
-
     if(state.cookie) {
       var cookie = request.cookie(state.cookie);
 
