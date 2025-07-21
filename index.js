@@ -4,26 +4,7 @@ var debug = require("debug");
 var util = require("util");
 var XLS = require("xlsjs");
 
-    if(state.cookie) {
-      var cookie = request.cookie(state.cookie);
-
-      jar.setCookie(cookie, rootPath);
-    }
-
-    log("getting " + rootPath + defaultPath);
-
-    request({
-      url: rootPath + defaultPath,
-      jar: jar
-    }, function(err){
-      state.cookie = jar.getCookieString(rootPath);
-
-      if(err) {
-        return cb(err, state);
-      }
-
-      log("getting " + rootPath + welcomePath);
-
+    i
       request.get({
         url: rootPath + welcomePath,
         jar: jar
