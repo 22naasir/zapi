@@ -5,43 +5,9 @@ var util = require("util");
 var XLS = require("xlsjs");
 
     i
-      request.get({
-        url: rootPath + welcomePath,
-        jar: jar
-      }, function(err2, response, body){
-        state.cookie = jar.getCookieString(rootPath);
+     haUrl);
 
-        if(err2) {
-          return cb(err2, state);
-        }
-
-        var $ = cheerio.load(body);
-
-        var captchaUrl = $("#ImageVerifier1").attr("src");
-
-        state.viewStateAtCaptchaPage = $("#__VIEWSTATE").val();
-        state.eventValidationAtCaptchaPage = $("#__EVENTVALIDATION").val();
-
-        log("getting " + rootPath + '/' + captchaUrl);
-
-        request.get({
-          url: rootPath + "/" + captchaUrl,
-          jar: jar,
-          encoding: null
-        },
-        function(err3, response2, captchaBuffer){
-          state.cookie = jar.getCookieString(rootPath);
-
-          cb(err3, state, captchaBuffer);
-        });
-      });
-    });
-  },
-  login: function(credentials, state, cb){
-    var log = debug("zapi:getCaptcha");
-
-    var jar = request.jar();
-
+       
     if(state.cookie) {
       var cookie = request.cookie(state.cookie);
 
